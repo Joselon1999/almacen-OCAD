@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeLeaf/Layout"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+  <title>Index Page</title>
+</head>
+<body>
+  <div layout:fragment="content" class="container mySpace">
+
+    <div sec:authorize="!isAuthenticated()" th:replace="coreFragments/loginForm :: loginForm"></div>
+  <div sec:authorize="isAuthenticated()">
+    Estas Logueado
+  </div>
+</div>
+</body>
+</html>

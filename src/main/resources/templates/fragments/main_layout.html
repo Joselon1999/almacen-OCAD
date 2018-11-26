@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title th:text="'Sistema de Almacen OCAD - ' + ${titulo}"></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="fonts/fontawesome/css/all.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <th:block layout:fragment="styleAdd">
+
+    </th:block>
+    <!--    -->
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div layout:fragment="content">
+
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+    <!--BootStrap Resources-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <th:block layout:fragment="javaAdd">
+
+    </th:block>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<header th:fragment="header" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">OCAD</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" th:classappend="${currentPage == 'Login'}? 'active'"
+                    sec:authorize="!isAuthenticated()">
+                    <a class="nav-link" href="/login">Iniciar Seción</a>
+                </li>
+                <li class="nav-item" th:classappend="${currentPage == 'Profile'}? 'active'"
+                    sec:authorize="hasRole('ROLE_USER')">
+                    <a class="nav-link" href="/pedido">Nuevo pedido</a>
+                </li>
+                <li class="nav-item" th:classappend="${currentPage == 'Recipe'}? 'active'"
+                    sec:authorize="hasRole('ROLE_USER')">
+                    <a class="nav-link" href="/historico">Historico Pedidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/solicitudes"
+                       sec:authorize="hasRole('ROLE_ADMIN')">Solicitudes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/almacen" th:classappend="${currentPage == 'Ingredient'}? 'active'"
+                       sec:authorize="hasRole('ROLE_ADMIN')">Almacen</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post"
+                  sec:authorize="isAuthenticated()">
+                <input class="form-control mr-sm-2" type="hidden"/>
+                <button class="btn btn-light my-2 my-sm-0" type="submit">Cerrar Seción</button>
+            </form>
+        </div>
+    </nav>
+    <div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
+    <div class="alert alert-danger" th:if="${error != null}" th:text="${error}"></div>
+    <div class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></div>
+    <div class="alert alert-info" th:if="${info != null}" th:text="${info}"></div>
+</header>
