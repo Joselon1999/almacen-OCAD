@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class ItemList {
+public class ItemList {/**/
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +19,12 @@ public class ItemList {
     private double quantity;
 
     public ItemList() {
+    }
+
+    public ItemList(Item item, Order order, @NotNull double quantity) {
+        this.item = item;
+        this.order = order;
+        this.quantity = quantity;
     }
 
     public long getId() {

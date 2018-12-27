@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class User {
+public class User {/**/
     @Id
     @NotEmpty
     @Email

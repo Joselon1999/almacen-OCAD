@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Entity
-public class Role {
+public class Role {/**/
 
     @Id
     @NotEmpty

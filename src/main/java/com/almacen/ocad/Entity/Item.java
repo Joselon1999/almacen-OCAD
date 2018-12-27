@@ -7,7 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 @Entity
-public class Item {
+public class Item {/**/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -18,6 +18,8 @@ public class Item {
     private String codigo;
     @NotEmpty
     private String description;
+    @NotEmpty
+    private int quantity;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "createdAt")
@@ -30,6 +32,23 @@ public class Item {
     }
 
     public Item() {
+    }
+
+    public Item(long id, String name, String codigo,int quantity, String description, Date createdAt) {
+        this.id = id;
+        this.name = name;
+        this.codigo = codigo;
+        this.description = description;
+        this.quantity=quantity;
+        this.createdAt = createdAt;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public long getId() {

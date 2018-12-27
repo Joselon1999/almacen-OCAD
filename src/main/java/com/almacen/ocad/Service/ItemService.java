@@ -17,7 +17,7 @@ public class ItemService {
     @Autowired
     private ItemRepository itemRepository;
 
-    public Page<Item> findAllPageable(Pageable pageable){return itemRepository.findAllPageable(pageable);}
+    //public Page<Item> findAllPageable(Pageable pageable){return itemRepository.findAllPageable(pageable);}
 
     public List<Item> findAll(){return itemRepository.findAll();}
     public Item save(Item item){return itemRepository.save(item);}

@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Order {
+public class Order {/**/
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +28,15 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
+
+    public Order(Long id, String ticket, String title, List<ItemList> itemLists, Date createdAt, User user) {
+        this.id = id;
+        this.ticket = ticket;
+        this.title = title;
+        this.itemLists = itemLists;
+        this.createdAt = createdAt;
+        this.user = user;
+    }
 
     public Order() {
     }
